@@ -23,17 +23,25 @@
 
     <style></style>
   </head>
-  <body class="bg-[#404A65] font-[kanit] text-black">
+  <body class="bg-[#404A65] font-[kanit] text-white flex justify-center">
     <main>
-      <div class="relative inline-block">
-        <h1 class="text-5xl justify-center absolute left-41 top-1">
-          Flip the coin
-        </h1>
-        <p class="text-5xl justify-center flex">Flip the coin</p>
-      </div>
-      <p class="flex justify-center mt-5 text-xl">
+      <h1 class="absolute text-6xl font-bold">Flip the coin</h1>
+
+      <p class="flex justify-center mt-20 text-xl">
         Press the coin or the button to flip the coin
       </p>
+
+      <img src="resources/heads.svg" alt="Heads" width="160px" height="160px" />
+      <img src="resources/shadow.svg" alt="Shadow" width="100px" height="8px" />
+
+      <p class="">Heads</p>
+
+      <div class="relative w-33 h-9">
+        <div class="absolute bg-[#164e7d] rounded-md left-0 top-2 w-full h-full -z-10"></div>
+        <button type="button" class="bg-[#1F6FB0] rounded-md w-full h-full font-semibold transform transition-transform duration-100 active:-translate-y-[-6px]">
+          RANDOM
+        </button>
+      </div>
     </main>
   </body>
 </html>
