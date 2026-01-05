@@ -4,8 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -18,31 +16,55 @@
       type="image/x-icon"
       sizes="96x96"
     />
+    <link rel="stylesheet" href="output.css" />
 
     <title>Flip the coin | devChallenges.io</title>
 
     <style></style>
   </head>
-  <body class="flex bg-[#404A65] font-[kanit] text-white justify-center text-center">
+  <body
+    class="flex relative bg-[#404A65] font-[kanit] text-white justify-center text-center"
+  >
     <main>
-      <h1 class="text-6xl font-bold mt-15">Flip the coin</h1>
+      <h1 class="text-6xl font-extrabold mt-[60px] text-white">
+        Flip the coin
+      </h1>
 
       <p class="flex justify-center mt-5 text-xl">
         Press the coin or the button to flip the coin
       </p>
 
-      
-      <img class="mt-20 mx-auto" src="resources/heads.svg" alt="Heads" width="160px" height="160px" />
-      <img class="mt-10 mx-auto"src="resources/shadow.svg" alt="Shadow" width="100px" height="8px" />
+      <img
+        data-name="coinImage"
+        class="mt-20 mx-auto"
+        src="resources/heads.svg"
+        alt="Heads"
+        width="160px"
+        height="160px"
+      />
+      <img
+        class="mt-10 mx-auto"
+        src="resources/shadow.svg"
+        alt="Shadow"
+        width="100px"
+        height="8px"
+      />
 
-      <p class="mt-10 text-xl">Heads</p>
+      <p class="mt-10 text-xl" data-name="faceText">Heads</p>
 
-      <div class="relative w-33 h-9 mt-10 mx-auto">
-        <div class="absolute bg-[#164e7d] rounded-md left-0 top-2 w-full h-full -z-10"></div>
-        <button type="button" class="cursor-pointer bg-[#1F6FB0] rounded-md w-full h-full font-semibold transform transition-transform duration-100 active:-translate-y-[-6px]">
+      <div class="relative w-[150px] h-9 mt-10 mx-auto">
+        <div
+          class="absolute bg-[#164e7d] rounded-md left-0 top-2 w-full h-full -z-10"
+        ></div>
+        <button
+          type="button"
+          data-name="button"
+          class="cursor-pointer bg-[#1F6FB0] rounded-md w-full h-full font-semibold transform transition-transform duration-100 active:-translate-y-[-6px]"
+        >
           RANDOM
         </button>
       </div>
     </main>
+    <script src="script.js"></script>
   </body>
 </html>
