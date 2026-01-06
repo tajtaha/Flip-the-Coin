@@ -1,23 +1,39 @@
 "use strict";
 
-let face = "heads";
-
 const faceText = document.querySelector('[data-name="faceText"]');
 const coinImage = document.querySelector('[data-name="coinImage"]');
+const button = document.querySelector('[data-name="button"]');
 
-document
-  .querySelector('[data-name="button"]')
-  .addEventListener("click", function () {
-    let faceNumber = Math.round(Math.random());
-    if (faceNumber === 1) {
-      face = "heads";
-      faceText.textContent = "Heads";
+let flipTimeout; // store the timeout ID
+
+button.addEventListener("click", () => {
+  // Cancel any existing flip timeout to allow retriggering
+  if (flipTimeout) {
+    clearTimeout(flipTimeout);
+    coinImage.classList.remove("animate-flip");
+  }
+
+  // Force reflow so animation can restart
+  void coinImage.offsetWidth;
+
+  // Start the flip animation
+  coinImage.classList.add("animate-flip");
+
+  // Decide heads or tails randomly
+  const isHeads = Math.random() < 0.5;
+
+  // After 2 seconds (animation duration), update coin face and remove animation
+  flipTimeout = setTimeout(() => {
+    coinImage.classList.remove("animate-flip"); // ready for next flip
+
+    if (isHeads) {
       coinImage.src = "resources/heads.svg";
-    } else if (faceNumber === 0) {
-      face = "tails";
-      faceText.textContent = "Tails";
-      coinImage.src = "resources/tails.svg";
+      faceText.textContent = "Heads";
     } else {
-      console.log("ERROR");
+      coinImage.src = "resources/tails.svg";
+      faceText.textContent = "Tails";
     }
-  });
+
+    flipTimeout = null; // reset timeout variable
+  }, 450); // match Tailwind animation duration
+});

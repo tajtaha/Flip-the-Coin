@@ -2,7 +2,18 @@
 module.exports = {
   content: ["./*.html", "./script.js"],
   theme: {
-    extend: {},
+    extend: {
+      keyframes: {
+        flip: {
+          "0%": { transform: "rotateY(0deg)" },
+          "50%": { transform: "rotateY(180deg)" },
+          "100%": { transform: "rotateY(360deg)" },
+        },
+      },
+      animation: {
+        flip: "flip 0.5s ease-out",
+      },
+    },
   },
   plugins: [],
 };
